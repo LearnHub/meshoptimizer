@@ -781,10 +781,13 @@ void writeImage(std::string& json, std::vector<BufferView>& views, const cgltf_i
 
 			if (encodeImage(img_data, mime_type.c_str(), encoded, info.normal_map, info.srgb, settings.texture_quality, settings.texture_scale, settings.texture_pow2, settings.texture_uastc, settings.verbose > 1))
 			{
-				if (!settings.texture_toktx)
-					encoded = basisToKtx(encoded, info.srgb, settings.texture_uastc);
+        printf("encodeImage() succeeded - ktx2:%s, toktx:%s\n", 
+                settings.texture_ktx2 ? "true":"false", settings.texture_toktx ? "true":"false");
+                
+				/*if (!settings.texture_toktx)
+					encoded = basisToKtx(encoded, info.srgb, settings.texture_uastc);*/
 
-				writeEmbeddedImage(json, views, encoded.c_str(), encoded.size(), settings.texture_ktx2 ? "image/ktx2" : "image/basis");
+				writeEmbeddedImage(json, views, encoded.c_str(), encoded.size(), /*settings.texture_ktx2 ? "image/ktx2" : */"image/basis");
 			}
 			else
 			{
