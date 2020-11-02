@@ -659,7 +659,8 @@ static void process(cgltf_data* data, const char* input_path, const char* output
 	    {"KHR_materials_sheen", ext_sheen, false},
 	    {"KHR_materials_unlit", ext_unlit, false},
 	    {"KHR_lights_punctual", data->lights_count > 0, false},
-	    {"KHR_texture_basisu", !json_textures.empty() && settings.texture_ktx2, true},
+//	    {"KHR_texture_basisu", !json_textures.empty() && settings.texture_ktx2, true},
+	    {"MOZ_HUBS_texture_basis", !json_textures.empty() && settings.texture_ktx2, true},
 	    {"EXT_mesh_gpu_instancing", ext_instancing, true},
 	};
 

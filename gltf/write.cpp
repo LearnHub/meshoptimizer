@@ -853,7 +853,8 @@ void writeTexture(std::string& json, const cgltf_texture& texture, cgltf_data* d
 	{
 		if (settings.texture_ktx2)
 		{
-			append(json, "\"extensions\":{\"KHR_texture_basisu\":{\"source\":");
+			//append(json, "\"extensions\":{\"KHR_texture_basisu\":{\"source\":");
+      append(json, "\"extensions\":{\"MOZ_HUBS_texture_basis\":{\"source\":");
 			append(json, size_t(texture.image - data->images));
 			append(json, "}}");
 		}
